@@ -13,9 +13,13 @@ export class LoginController {
         password,
       });
 
-      response.status(200).json({
+      return response.status(200).json({
         token,
       });
-    } catch (err) {}
+    } catch (err: any) {
+      return response.status(400).json({
+        message: err.message || "Server Error",
+      });
+    }
   }
 }

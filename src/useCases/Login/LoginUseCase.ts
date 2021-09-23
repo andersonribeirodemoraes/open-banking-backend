@@ -4,7 +4,7 @@ import { LoginDTO } from "./LoginDTO";
 export class LoginUseCase {
   constructor(private userRepository: IUserRepository) {}
 
-  async execute(login: LoginDTO) {
+  async execute(login: LoginDTO): Promise<string> {
     const user = await this.userRepository.findByCpf(login.cpf);
 
     if (!user) {
@@ -17,7 +17,7 @@ export class LoginUseCase {
     }
 
     //Criar token
-    const token = "";
+    const token = "1t23u1g3g187bt187bx7812b";
 
     return token;
   }
