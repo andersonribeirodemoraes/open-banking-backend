@@ -1,4 +1,3 @@
-import { ILoginRepository } from "src/repositories/interfaces/ILoginRepository";
 import { IUserRepository } from "src/repositories/interfaces/IUserRepository";
 import { LoginDTO } from "./LoginDTO";
 
@@ -11,5 +10,15 @@ export class LoginUseCase {
     if (!user) {
       throw new Error("User does not exist");
     }
+
+    //Implementar comparação de senha com criptografia
+    if (login.password != user.password) {
+      throw new Error("Incorrect password");
+    }
+
+    //Criar token
+    const token = "";
+
+    return token;
   }
 }
