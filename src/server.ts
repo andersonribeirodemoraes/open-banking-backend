@@ -1,9 +1,12 @@
 import express from "express";
+import routes from "./routes";
 
 const app = express();
 
-app.get("/", (request, response) => {
-  return response.json({ message: "Hello Word" });
-});
+app.use(express.json());
 
-app.listen(3005);
+app.use(routes);
+
+app.listen(3005, () => {
+  console.log("Rodando na porta 3005");
+});
